@@ -76,4 +76,4 @@ class Parser(object):
                     if 'www.google.com' in self.URL: self.__list.append(urls)
                     else: self.__list.append(urls[:-1])
             except Exception as e:
-                print(e)
+                print(e + "TESTE2")

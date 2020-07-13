@@ -7,6 +7,7 @@ from sqlscan import sqli_scan
 from dork import Parser
 from cor import logo
 from cor import color as c
+from crawler import teste
 urls=[]
 class crawl(object):
     auth = {
@@ -127,12 +128,18 @@ class Main():
                 _ = crawl(arg.dork,proxy=arg.proxy)
                 _.Bing()
                 _.Google()
+                #_.Yahoo()
                 if urls != []:
                     for url in list(set(urls)):
                         print('- {}'.format(url))
                     for scan in list(set(urls)):
                         try:
                             SQLi_Scanner().scan(scan)
+                        except Exception as e:
+                            print(e)
+                        try:
+                            print(scan)
+                            teste().craw(scan)
                         except Exception as e:
                             print(e)
                 else:
@@ -145,6 +152,7 @@ class Main():
                 _ = crawl(arg.dork, proxy=arg.proxy)
                 _.Bing()
                 _.Google()
+                #_.Yahoo()
                 if urls != []:
                     for url in list(set(urls)):
                         print('- {}'.format(url))

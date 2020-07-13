@@ -139,11 +139,13 @@ class sqli_scan(object):
         resp = requests.get(f"{self.url}'").text
         for a, b in self.error.items():
             if re.search(b, resp):
-                f = open(f'{pth()}/vuln.txt', 'a+')
-                f.write(f'{self.url}\n')
-                f.close()
                 _vuln += 1
                 __vuln += b
+                f = open(f'{pth()}/vuln.txt', 'a+')
+                f.write(f'{self.url}')
+                f.write(f',')
+                f.write(f'{__vuln}\n')
+                f.close()
             else:
                 pass
 
